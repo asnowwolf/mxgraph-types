@@ -25,120 +25,119 @@
  * graph - Reference to the enclosing <mxGraph>.
  */
 
-declare namespace mxgraph {
-    export class mxSelectionCellsHandler extends mxEventSource {
-        constructor(graph: mxGraph);
 
-        /**
-         * Variable: graph
-         *
-         * Reference to the enclosing <mxGraph>.
-         */
-        graph: mxGraph;
+declare class mxSelectionCellsHandler extends mxEventSource {
+  constructor(graph: mxGraph);
 
-        /**
-         * Variable: enabled
-         *
-         * Specifies if events are handled. Default is true.
-         */
-        enabled: boolean;
+  /**
+   * Variable: graph
+   *
+   * Reference to the enclosing <mxGraph>.
+   */
+  graph: mxGraph;
 
-        /**
-         * Variable: refreshHandler
-         *
-         * Keeps a reference to an event listener for later removal.
-         */
-        refreshHandler: any;
+  /**
+   * Variable: enabled
+   *
+   * Specifies if events are handled. Default is true.
+   */
+  enabled: boolean;
 
-        /**
-         * Variable: maxHandlers
-         *
-         * Defines the maximum number of handlers to paint individually. Default is 100.
-         */
-        maxHandlers: number;
+  /**
+   * Variable: refreshHandler
+   *
+   * Keeps a reference to an event listener for later removal.
+   */
+  refreshHandler: any;
 
-        /**
-         * Variable: handlers
-         *
-         * <mxDictionary> that maps from cells to handlers.
-         */
-        handlers: mxDictionary<any>;
+  /**
+   * Variable: maxHandlers
+   *
+   * Defines the maximum number of handlers to paint individually. Default is 100.
+   */
+  maxHandlers: number;
 
-        /**
-         * Function: isEnabled
-         *
-         * Returns <enabled>.
-         */
-        isEnabled(): boolean;
+  /**
+   * Variable: handlers
+   *
+   * <mxDictionary> that maps from cells to handlers.
+   */
+  handlers: mxDictionary<any>;
 
-        /**
-         * Function: setEnabled
-         *
-         * Sets <enabled>.
-         */
-        setEnabled(value: boolean): void;
+  /**
+   * Function: isEnabled
+   *
+   * Returns <enabled>.
+   */
+  isEnabled(): boolean;
 
-        /**
-         * Function: getHandler
-         *
-         * Returns the handler for the given cell.
-         */
-        getHandler(cell: mxCell): any;
+  /**
+   * Function: setEnabled
+   *
+   * Sets <enabled>.
+   */
+  setEnabled(value: boolean): void;
 
-        /**
-         * Function: reset
-         *
-         * Resets all handlers.
-         */
-        reset(): void;
+  /**
+   * Function: getHandler
+   *
+   * Returns the handler for the given cell.
+   */
+  getHandler(cell: mxCell): any;
 
-        /**
-         * Function: refresh
-         *
-         * Reloads or updates all handlers.
-         */
-        refresh(): void;
+  /**
+   * Function: reset
+   *
+   * Resets all handlers.
+   */
+  reset(): void;
 
-        /**
-         * Function: isHandlerActive
-         *
-         * Returns true if the given handler is active and should not be redrawn.
-         */
-        isHandlerActive(handler: any): boolean;
+  /**
+   * Function: refresh
+   *
+   * Reloads or updates all handlers.
+   */
+  refresh(): void;
 
-        /**
-         * Function: updateHandler
-         *
-         * Updates the handler for the given shape if one exists.
-         */
-        updateHandler(state: mxCellState): void;
+  /**
+   * Function: isHandlerActive
+   *
+   * Returns true if the given handler is active and should not be redrawn.
+   */
+  isHandlerActive(handler: any): boolean;
 
-        /**
-         * Function: mouseDown
-         *
-         * Redirects the given event to the handlers.
-         */
-        mouseDown(sender: Event, me: Event): void;
+  /**
+   * Function: updateHandler
+   *
+   * Updates the handler for the given shape if one exists.
+   */
+  updateHandler(state: mxCellState): void;
 
-        /**
-         * Function: mouseMove
-         *
-         * Redirects the given event to the handlers.
-         */
-        mouseMove(sender: Event, me: Event): void;
+  /**
+   * Function: mouseDown
+   *
+   * Redirects the given event to the handlers.
+   */
+  mouseDown(sender: Event, me: Event): void;
 
-        /**
-         * Function: mouseUp
-         *
-         * Redirects the given event to the handlers.
-         */
-        mouseUp(sender: Event, me: Event): void;
+  /**
+   * Function: mouseMove
+   *
+   * Redirects the given event to the handlers.
+   */
+  mouseMove(sender: Event, me: Event): void;
 
-        /**
-         * Function: destroy
-         *
-         * Destroys the handler and all its resources and DOM nodes.
-         */
-        destroy(): void;
-    }
+  /**
+   * Function: mouseUp
+   *
+   * Redirects the given event to the handlers.
+   */
+  mouseUp(sender: Event, me: Event): void;
+
+  /**
+   * Function: destroy
+   *
+   * Destroys the handler and all its resources and DOM nodes.
+   */
+  destroy(): void;
 }

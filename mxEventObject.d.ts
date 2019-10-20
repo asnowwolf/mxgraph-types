@@ -25,64 +25,63 @@
  * new mxEventObject("eventName", key1, val1, .., keyN, valN)
  * (end)
  */
-declare namespace mxgraph {
-  export class mxEventObject {
-    constructor(name: string, ...args: any[]);
 
-    /**
-     * Variable: name
-     *
-     * Holds the name.
-     */
-    name: string;
+declare class mxEventObject {
+  constructor(name: string, ...args: any[]);
 
-    /**
-     * Variable: properties
-     *
-     * Holds the properties as an associative array.
-     */
-    properties: any[];
+  /**
+   * Variable: name
+   *
+   * Holds the name.
+   */
+  name: string;
 
-    /**
-     * Variable: consumed
-     *
-     * Holds the consumed state. Default is false.
-     */
-    consumed: boolean;
+  /**
+   * Variable: properties
+   *
+   * Holds the properties as an associative array.
+   */
+  properties: any[];
 
-    /**
-     * Function: getName
-     *
-     * Returns <name>.
-     */
-    getName(): string;
+  /**
+   * Variable: consumed
+   *
+   * Holds the consumed state. Default is false.
+   */
+  consumed: boolean;
 
-    /**
-     * Function: getProperties
-     *
-     * Returns <properties>.
-     */
-    getProperties(): any[];
+  /**
+   * Function: getName
+   *
+   * Returns <name>.
+   */
+  getName(): string;
 
-    /**
-     * Function: getProperty
-     *
-     * Returns the property for the given key.
-     */
-    getProperty(key: string): any[];
+  /**
+   * Function: getProperties
+   *
+   * Returns <properties>.
+   */
+  getProperties(): any[];
 
-    /**
-     * Function: isConsumed
-     *
-     * Returns true if the event has been consumed.
-     */
-    isConsumed(): boolean;
+  /**
+   * Function: getProperty
+   *
+   * Returns the property for the given key.
+   */
+  getProperty(key: string): any[];
 
-    /**
-     * Function: consume
-     *
-     * Consumes the event.
-     */
-    consume(): void;
-  }
+  /**
+   * Function: isConsumed
+   *
+   * Returns true if the event has been consumed.
+   */
+  isConsumed(): boolean;
+
+  /**
+   * Function: consume
+   *
+   * Consumes the event.
+   */
+  consume(): void;
 }

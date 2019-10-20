@@ -1,4 +1,3 @@
-
 /// <reference path="./mxAbstractCanvas2D.d.ts" />
 /// <reference path="./mxEventSource.d.ts" />
 /// <reference path="./mxPopupMenu.d.ts" />
@@ -51,7 +50,4 @@
 /// <reference path="./mxPoint.d.ts" />
 /// <reference path="./mxEventObject.d.ts" />
 /// <reference path="./mxPolyline.d.ts" />
-
-declare const _mxgraph: typeof mxgraph;
-
-export { _mxgraph as mxgraph };
+/// <reference path="./mxClient.d.ts" />

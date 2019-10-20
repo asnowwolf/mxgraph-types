@@ -11,29 +11,28 @@
  *
  * Constructs a new image.
  */
-declare namespace mxgraph {
-  export class mxImage {
-    constructor(src: string, width: number, height: number);
 
-    /**
-     * Variable: src
-     *
-     * String that specifies the URL of the image.
-     */
-    src: string;
+declare class mxImage {
+  constructor(src: string, width: number, height: number);
 
-    /**
-     * Variable: width
-     *
-     * Integer that specifies the width of the image.
-     */
-    width: number;
+  /**
+   * Variable: src
+   *
+   * String that specifies the URL of the image.
+   */
+  src: string;
 
-    /**
-     * Variable: height
-     *
-     * Integer that specifies the height of the image.
-     */
-    height: number;
-  }
+  /**
+   * Variable: width
+   *
+   * Integer that specifies the width of the image.
+   */
+  width: number;
+
+  /**
+   * Variable: height
+   *
+   * Integer that specifies the height of the image.
+   */
+  height: number;
 }

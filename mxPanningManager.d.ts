@@ -7,67 +7,67 @@
  *
  * Implements a handler for panning.
  */
-declare namespace mxgraph {
-  export class mxPanningManager {
-    constructor(graph: mxGraph);
-    private thread: (handler: TimerHandler, timeout?: number, ...arguments: any[]) => number;
-    private active: boolean;
-    private tdx: number;
-    private tdy: number;
-    private t0x: number;
-    private t0y: number;
-    private dx: number;
-    private dy: number;
-    private scrollbars: boolean;
-    private scrollLeft: number;
-    private scrollTop: number;
 
-    private mouseListener: {
-      mouseDown: (sender: any, me: mxMouseEvent) => void;
-      mouseMove: (sender: any, me: mxMouseEvent) => void;
-      mouseUp: (sender: any, me: mxMouseEvent) => void;
-    };
+declare class mxPanningManager {
+  constructor(graph: mxGraph);
 
-    private mouseUpListener: () => void;
+  private thread: (handler: TimerHandler, timeout?: number, ...arguments: any[]) => number;
+  private active: boolean;
+  private tdx: number;
+  private tdy: number;
+  private t0x: number;
+  private t0y: number;
+  private dx: number;
+  private dy: number;
+  private scrollbars: boolean;
+  private scrollLeft: number;
+  private scrollTop: number;
 
-    private isActive(): boolean;
+  private mouseListener: {
+    mouseDown: (sender: any, me: mxMouseEvent) => void;
+    mouseMove: (sender: any, me: mxMouseEvent) => void;
+    mouseUp: (sender: any, me: mxMouseEvent) => void;
+  };
 
-    private getDx(): number;
+  private mouseUpListener: () => void;
 
-    private getDy(): number;
+  private isActive(): boolean;
 
-    private start(): void;
+  private getDx(): number;
 
-    private panTo(x: number, y: number, w: number, h: number): void;
+  private getDy(): number;
 
-    private stop(): void;
+  private start(): void;
 
-    /**
-     * Variable: damper
-     * 
-     * Damper value for the panning. Default is 1/6.
-     */
-    damper: number;
+  private panTo(x: number, y: number, w: number, h: number): void;
 
-    /**
-     * Variable: delay
-     * 
-     * Delay in milliseconds for the panning. Default is 10.
-     */
-    delay: number;
+  private stop(): void;
 
-    /**
-     * Variable: handleMouseOut
-     * 
-     * Specifies if mouse events outside of the component should be handled. Default is true. 
-     */
-    handleMouseOut: boolean;
+  /**
+   * Variable: damper
+   *
+   * Damper value for the panning. Default is 1/6.
+   */
+  damper: number;
 
-    /**
-     * Variable: border
-     * 
-     * Border to handle automatic panning inside the component. Default is 0 (disabled).
-     */
-    border: number;
-  }
+  /**
+   * Variable: delay
+   *
+   * Delay in milliseconds for the panning. Default is 10.
+   */
+  delay: number;
+
+  /**
+   * Variable: handleMouseOut
+   *
+   * Specifies if mouse events outside of the component should be handled. Default is true.
+   */
+  handleMouseOut: boolean;
+
+  /**
+   * Variable: border
+   *
+   * Border to handle automatic panning inside the component. Default is 0 (disabled).
+   */
+  border: number;
 }

@@ -8,93 +8,92 @@
  *
  * Converts relative and absolute URLs to absolute URLs with protocol and domain.
  */
-declare namespace mxgraph {
-  export class mxUrlConverter {
-    constructor();
 
-    /**
-     * Variable: enabled
-     *
-     * Specifies if the converter is enabled. Default is true.
-     */
-    enabled: boolean;
+declare class mxUrlConverter {
+  constructor();
 
-    /**
-     * Variable: baseUrl
-     *
-     * Specifies the base URL to be used as a prefix for relative URLs.
-     */
-    baseUrl: string;
+  /**
+   * Variable: enabled
+   *
+   * Specifies if the converter is enabled. Default is true.
+   */
+  enabled: boolean;
 
-    /**
-     * Variable: baseDomain
-     *
-     * Specifies the base domain to be used as a prefix for absolute URLs.
-     */
-    baseDomain: string;
+  /**
+   * Variable: baseUrl
+   *
+   * Specifies the base URL to be used as a prefix for relative URLs.
+   */
+  baseUrl: string;
 
-    /**
-     * Function: updateBaseUrl
-     *
-     * Private helper function to update the base URL.
-     */
-    updateBaseUrl(): void;
+  /**
+   * Variable: baseDomain
+   *
+   * Specifies the base domain to be used as a prefix for absolute URLs.
+   */
+  baseDomain: string;
 
-    /**
-     * Function: isEnabled
-     *
-     * Returns <enabled>.
-     */
-    isEnabled(): boolean;
+  /**
+   * Function: updateBaseUrl
+   *
+   * Private helper function to update the base URL.
+   */
+  updateBaseUrl(): void;
 
-    /**
-     * Function: setEnabled
-     *
-     * Sets <enabled>.
-     */
-    setEnabled(value: boolean): void;
+  /**
+   * Function: isEnabled
+   *
+   * Returns <enabled>.
+   */
+  isEnabled(): boolean;
 
-    /**
-     * Function: getBaseUrl
-     *
-     * Returns <baseUrl>.
-     */
-    getBaseUrl(): string;
+  /**
+   * Function: setEnabled
+   *
+   * Sets <enabled>.
+   */
+  setEnabled(value: boolean): void;
 
-    /**
-     * Function: setBaseUrl
-     *
-     * Sets <baseUrl>.
-     */
-    setBaseUrl(value: string): void;
+  /**
+   * Function: getBaseUrl
+   *
+   * Returns <baseUrl>.
+   */
+  getBaseUrl(): string;
 
-    /**
-     * Function: getBaseDomain
-     *
-     * Returns <baseDomain>.
-     */
-    getBaseDomain(): string;
+  /**
+   * Function: setBaseUrl
+   *
+   * Sets <baseUrl>.
+   */
+  setBaseUrl(value: string): void;
 
-    /**
-     * Function: setBaseDomain
-     *
-     * Sets <baseDomain>.
-     */
-    setBaseDomain(value: string): void;
+  /**
+   * Function: getBaseDomain
+   *
+   * Returns <baseDomain>.
+   */
+  getBaseDomain(): string;
 
-    /**
-     * Function: isRelativeUrl
-     *
-     * Returns true if the given URL is relative.
-     */
-    isRelativeUrl(url: string): boolean;
+  /**
+   * Function: setBaseDomain
+   *
+   * Sets <baseDomain>.
+   */
+  setBaseDomain(value: string): void;
 
-    /**
-     * Function: convert
-     *
-     * Converts the given URL to an absolute URL with protol and domain.
-     * Relative URLs are first converted to absolute URLs.
-     */
-    convert(url: string): string;
-  }
+  /**
+   * Function: isRelativeUrl
+   *
+   * Returns true if the given URL is relative.
+   */
+  isRelativeUrl(url: string): boolean;
+
+  /**
+   * Function: convert
+   *
+   * Converts the given URL to an absolute URL with protol and domain.
+   * Relative URLs are first converted to absolute URLs.
+   */
+  convert(url: string): string;
 }

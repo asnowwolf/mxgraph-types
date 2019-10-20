@@ -46,103 +46,102 @@
  *
  * Constructs a new undoable edit for the given source.
  */
-declare namespace mxgraph {
-  export class mxUndoableEdit {
-    constructor(source: any, significant: boolean);
 
-    /**
-     * Variable: source
-     *
-     * Specifies the source of the edit.
-     */
-    source: any;
+declare class mxUndoableEdit {
+  constructor(source: any, significant: boolean);
 
-    /**
-     * Variable: changes
-     *
-     * Array that contains the changes that make up this edit. The changes are
-     * expected to either have an undo and redo function, or an execute
-     * function. Default is an empty array.
-     */
-    changes: mxUndoableChange[];
+  /**
+   * Variable: source
+   *
+   * Specifies the source of the edit.
+   */
+  source: any;
 
-    /**
-     * Variable: significant
-     *
-     * Specifies if the undoable change is significant.
-     * Default is true.
-     */
-    significant: boolean;
+  /**
+   * Variable: changes
+   *
+   * Array that contains the changes that make up this edit. The changes are
+   * expected to either have an undo and redo function, or an execute
+   * function. Default is an empty array.
+   */
+  changes: mxUndoableChange[];
 
-    /**
-     * Variable: undone
-     *
-     * Specifies if this edit has been undone. Default is false.
-     */
-    undone: boolean;
+  /**
+   * Variable: significant
+   *
+   * Specifies if the undoable change is significant.
+   * Default is true.
+   */
+  significant: boolean;
 
-    /**
-     * Variable: redone
-     *
-     * Specifies if this edit has been redone. Default is false.
-     */
-    redone: boolean;
+  /**
+   * Variable: undone
+   *
+   * Specifies if this edit has been undone. Default is false.
+   */
+  undone: boolean;
 
-    /**
-     * Function: isEmpty
-     *
-     * Returns true if the this edit contains no changes.
-     */
-    isEmpty(): boolean;
+  /**
+   * Variable: redone
+   *
+   * Specifies if this edit has been redone. Default is false.
+   */
+  redone: boolean;
 
-    /**
-     * Function: isSignificant
-     *
-     * Returns <significant>.
-     */
-    isSignificant(): boolean;
+  /**
+   * Function: isEmpty
+   *
+   * Returns true if the this edit contains no changes.
+   */
+  isEmpty(): boolean;
 
-    /**
-     * Function: add
-     *
-     * Adds the specified change to this edit. The change is an object that is
-     * expected to either have an undo and redo, or an execute function.
-     */
-    add(change: mxUndoableChange): void;
+  /**
+   * Function: isSignificant
+   *
+   * Returns <significant>.
+   */
+  isSignificant(): boolean;
 
-    /**
-     * Function: notify
-     *
-     * Hook to notify any listeners of the changes after an <undo> or <redo>
-     * has been carried out. This implementation is empty.
-     */
-    notify(): void;
+  /**
+   * Function: add
+   *
+   * Adds the specified change to this edit. The change is an object that is
+   * expected to either have an undo and redo, or an execute function.
+   */
+  add(change: mxUndoableChange): void;
 
-    /**
-     * Function: die
-     *
-     * Hook to free resources after the edit has been removed from the command
-     * history. This implementation is empty.
-     */
-    die(): void;
+  /**
+   * Function: notify
+   *
+   * Hook to notify any listeners of the changes after an <undo> or <redo>
+   * has been carried out. This implementation is empty.
+   */
+  notify(): void;
 
-    /**
-     * Function: undo
-     *
-     * Undoes all changes in this edit.
-     */
-    undo(): void;
+  /**
+   * Function: die
+   *
+   * Hook to free resources after the edit has been removed from the command
+   * history. This implementation is empty.
+   */
+  die(): void;
 
-    /**
-     * Function: redo
-     *
-     * Redoes all changes in this edit.
-     */
-    redo(): void;
+  /**
+   * Function: undo
+   *
+   * Undoes all changes in this edit.
+   */
+  undo(): void;
 
-  }
+  /**
+   * Function: redo
+   *
+   * Redoes all changes in this edit.
+   */
+  redo(): void;
 
-  interface mxUndoableChange {
-    execute(): void;
-  }
+}
+
+interface mxUndoableChange {
+  execute(): void;
 }
