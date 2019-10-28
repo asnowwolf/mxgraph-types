@@ -1,3 +1,4 @@
+/* tslint:disable:no-reference */
 /// <reference path="./mxAbstractCanvas2D.d.ts" />
 /// <reference path="./mxEventSource.d.ts" />
 /// <reference path="./mxPopupMenu.d.ts" />
@@ -56,3 +57,9 @@
 /// <reference path="./mxPrintPreview.d.ts" />
 /// <reference path="./mxWindow.d.ts" />
 /// <reference path="./mxUndoManager.d.ts" />
+/// <reference path="../mxgraph/shapes/mxEllipse.d.ts" />
+/// <reference path="../mxgraph/shapes/mxActor.d.ts" />
+/// <reference path="../mxgraph/shapes/mxCylinder.d.ts" />
+/// <reference path="../mxgraph/shapes/mxArrowConnector.d.ts" />
+/// <reference path="../mxgraph/shapes/mxDoubleEllipse.d.ts" />
+/// <reference path="../mxgraph/shapes/mxRhombus.d.ts" />
