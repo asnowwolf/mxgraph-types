@@ -40,3 +40,7 @@ declare const mxClient: {
   languages: any;
   defaultLanguage: any;
 };
+
+declare const mxBasePath: string;
+declare const RESOURCE_BASE: string;
+declare const mxLanguage: string;
