@@ -43,4 +43,5 @@ declare const mxClient: {
 
 declare const mxBasePath: string;
 declare const RESOURCE_BASE: string;
+declare const STYLE_PATH: string;
 declare const mxLanguage: string;
