@@ -68,7 +68,7 @@
 
 declare class mxCell {
 
-  constructor(value: Element, geometry, style);
+  constructor(value: any, geometry, style);
 
   /**
    * Variable: id
