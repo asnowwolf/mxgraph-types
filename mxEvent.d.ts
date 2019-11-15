@@ -950,4 +950,5 @@ declare const mxEvent: {
    * true.
    */
   consume(evt, preventDefault?: boolean, stopPropagation?: boolean);
+  getSource(evt);
 };

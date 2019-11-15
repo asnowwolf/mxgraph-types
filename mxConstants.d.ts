@@ -3,7 +3,7 @@
  * Copyright (c) 2006-2015, Gaudenz Alder
  */
 
-declare interface mxConstants {
+declare class mxConstants {
   /**
    * Class: mxConstants
    *
