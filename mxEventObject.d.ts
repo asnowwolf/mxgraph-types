@@ -41,7 +41,7 @@ declare class mxEventObject {
    *
    * Holds the properties as an associative array.
    */
-  properties: any[];
+  properties: Record<string, any>;
 
   /**
    * Variable: consumed

@@ -66,14 +66,14 @@
  * Constructs a new undo manager with the given history size. If no history
  * size is given, then a default size of 100 steps is used.
  */
-declare class mxUndoManager {
+declare class mxUndoManager extends mxEventSource {
     size: any;
     /**
      * Variable: history
      *
      * Array that contains the steps of the command history.
      */
-    history: any;
+    history: mxUndoableEdit[];
     /**
      * Variable: indexOfNextAdd
      *
@@ -121,7 +121,7 @@ declare class mxUndoManager {
      *
      * Method to be called to add new undoable edits to the <history>.
      */
-    undoableEditHappened(undoableEdit: any): void;
+    undoableEditHappened(undoableEdit: mxUndoableEdit): void;
     /**
      * Function: trim
      *

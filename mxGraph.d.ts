@@ -4,7 +4,7 @@
  */
 
 
-declare class mxGraph {
+declare class mxGraph extends mxEventSource {
   //#region variables
 
   // Holds the mouse event listeners.
