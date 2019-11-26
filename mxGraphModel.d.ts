@@ -3,14 +3,11 @@
  * Copyright (c) 2006-2015, Gaudenz Alder
  */
 
+declare interface mxChange {
+  execute(): void;
+}
 
 declare class mxGraphModel extends mxEventSource {
-
-  /**
-   * Constructs a new graph model. If no root is specified then a new root
-   * @param root mxCell
-   */
-  mxGraphModel(root: mxCell);
 
   /**
    * Variable: root
@@ -20,14 +17,12 @@ declare class mxGraphModel extends mxEventSource {
    * diagram are supposed to live in the third generation of cells and below.
    */
   root: mxCell;
-
   /**
    * Variable: cells
    *
    * Maps from Ids to cells.
    */
   cells: mxCell[];
-
   /**
    * Variable: maintainEdgeParent
    *
@@ -35,7 +30,6 @@ declare class mxGraphModel extends mxEventSource {
    * ancestor of their terminals. Default is true.
    */
   maintainEdgeParent: boolean;
-
   /**
    * Variable: ignoreRelativeEdgeParent
    *
@@ -43,7 +37,6 @@ declare class mxGraphModel extends mxEventSource {
    * common ancestors of an edge's terminals. Default is true.
    */
   ignoreRelativeEdgeParent: boolean;
-
   /**
    * Variable: createIds
    *
@@ -51,28 +44,24 @@ declare class mxGraphModel extends mxEventSource {
    * Default is true.
    */
   createIds: boolean;
-
   /**
    * Variable: prefix
    *
    * Defines the prefix of new Ids. Default is an empty string.
    */
   prefix: string;
-
   /**
    * Variable: postfix
    *
    * Defines the postfix of new Ids. Default is an empty string.
    */
   postfix: string;
-
   /**
    * Variable: nextId
    *
    * Specifies the next Id to be created. Initial value is 0.
    */
   nextId: number;
-
   /**
    * Variable: currentEdit
    *
@@ -81,7 +70,6 @@ declare class mxGraphModel extends mxEventSource {
    * <createUndoableEdit>.
    */
   currentEdit;
-
   /**
    * Variable: updateLevel
    *
@@ -91,13 +79,18 @@ declare class mxGraphModel extends mxEventSource {
    * respective events are fired. Initial value is 0.
    */
   updateLevel: number;
-
   /**
    * Variable: endingUpdate
    *
    * True if the program flow is currently inside endUpdate.
    */
   endingUpdate: boolean;
+
+  /**
+   * Constructs a new graph model. If no root is specified then a new root
+   * @param root mxCell
+   */
+  mxGraphModel(root: mxCell);
 
   /**
    * Function: clear
@@ -941,7 +934,7 @@ declare class mxGraphModel extends mxEventSource {
    *
    * change - Object that described the change.
    */
-  execute(change: any): void;
+  execute(change: mxChange): void;
 
   /**
    * Function: beginUpdate
@@ -1123,9 +1116,11 @@ declare class mxGraphModel extends mxEventSource {
  * specified model.
  */
 
-declare class mxRootChange {
+declare class mxRootChange implements mxChange {
   constructor(model: mxGraphModel, root: mxCell);
 
+  model: mxGraphModel;
+  root: mxCell;
 
   /**
    * Function: execute
@@ -1147,8 +1142,15 @@ declare class mxRootChange {
  * specified model.
  */
 
-declare class mxChildChange {
+declare class mxChildChange implements mxChange {
   constructor(model: mxGraphModel, parent: mxCell, child: mxCell, index: number);
+
+  model: mxGraphModel;
+  parent: mxCell;
+  previous: mxCell;
+  child: mxCell;
+  index: number;
+  previousIndex: number;
 
   /**
    * Function: execute
@@ -1181,8 +1183,14 @@ declare class mxChildChange {
  * specified model.
  */
 
-declare class mxTerminalChange {
+declare class mxTerminalChange implements mxChange {
   constructor(model: mxGraphModel, cell: mxCell, terminal: mxCell, source: mxCell);
+
+  model: mxGraphModel;
+  cell: mxCell;
+  terminal: mxCell;
+  previous: mxCell;
+  source: mxCell;
 
   /**
    * Function: execute
@@ -1205,8 +1213,13 @@ declare class mxTerminalChange {
  * specified model.
  */
 
-declare class mxValueChange {
+declare class mxValueChange implements mxChange {
   constructor(model: mxGraphModel, cell: mxCell, value: any);
+
+  model: mxGraphModel;
+  cell: mxCell;
+  value: any;
+  previous: any;
 
   /**
    * Function: execute
@@ -1229,8 +1242,13 @@ declare class mxValueChange {
  * specified model.
  */
 
-declare class mxStyleChange {
+declare class mxStyleChange implements mxChange {
   constructor(model: mxGraphModel, cell: mxCell, style: string);
+
+  model: mxGraphModel;
+  cell: mxCell;
+  style: string;
+  previous: string;
 
   /**
    * Function: execute
@@ -1253,8 +1271,13 @@ declare class mxStyleChange {
  * specified model.
  */
 
-declare class mxGeometryChange {
+declare class mxGeometryChange implements mxChange {
   constructor(model: mxGraphModel, cell: mxCell, geometry: mxGeometry);
+
+  model: mxGraphModel;
+  cell: mxCell;
+  geometry: mxGeometry;
+  previous: mxGeometry;
 
   /**
    * Function: execute
@@ -1277,8 +1300,13 @@ declare class mxGeometryChange {
  * specified model.
  */
 
-declare class mxCollapseChange {
+declare class mxCollapseChange implements mxChange {
   constructor(model: mxGraphModel, cell: mxCell, collapsed: boolean);
+
+  model: mxGraphModel;
+  cell: mxCell;
+  collapsed: boolean;
+  previous: boolean;
 
   /**
    * Function: execute
@@ -1300,8 +1328,13 @@ declare class mxCollapseChange {
  * specified model.
  */
 
-declare class mxVisibleChange {
+declare class mxVisibleChange implements mxChange {
   constructor(model: mxGraphModel, cell: mxCell, visible: boolean);
+
+  model: mxGraphModel;
+  cell: mxCell;
+  visible: boolean;
+  previous: boolean;
 
   /**
    * Function: execute
@@ -1345,8 +1378,13 @@ declare class mxVisibleChange {
  * stored as the value of the given <mxCell>.
  */
 
-declare class mxCellAttributeChange {
+declare class mxCellAttributeChange implements mxChange {
   constructor(cell: mxCell, attribute: string, value: any);
+
+  cell: mxCell;
+  attribute: string;
+  value: any;
+  previous: any;
 
   /**
    * Function: execute
