@@ -22,7 +22,7 @@ declare class mxGraphModel extends mxEventSource {
    *
    * Maps from Ids to cells.
    */
-  cells: mxCell[];
+  cells: Record<string, mxCell>;
   /**
    * Variable: maintainEdgeParent
    *
@@ -1128,7 +1128,7 @@ declare class mxRootChange implements mxChange {
    * Carries out a change of the root using
    * <mxGraphModel.rootChanged>.
    */
-  execute();
+  execute(): void;
 }
 
 /**
@@ -1184,13 +1184,13 @@ declare class mxChildChange implements mxChange {
  */
 
 declare class mxTerminalChange implements mxChange {
-  constructor(model: mxGraphModel, cell: mxCell, terminal: mxCell, source: mxCell);
+  constructor(model: mxGraphModel, cell: mxCell, terminal: mxCell, source: boolean);
 
   model: mxGraphModel;
   cell: mxCell;
   terminal: mxCell;
   previous: mxCell;
-  source: mxCell;
+  source: boolean;
 
   /**
    * Function: execute
