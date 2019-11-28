@@ -82,7 +82,7 @@ declare class mxCell {
    *
    * Holds the user object. Default is null.
    */
-  value: Element;
+  value: any;
 
   /**
    * Variable: geometry
