@@ -63,7 +63,7 @@
 
 
 declare class mxShape {
-  constructor(stencil: mxStencil);
+  constructor(stencil?: mxStencil);
 
   /**
    * Variable: dialect
