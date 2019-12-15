@@ -242,6 +242,7 @@ declare class mxGraph extends mxEventSource {
   containsValidationErrorsResource: 'containsValidationErrors' | '';
 
   collapseExpandResource: 'collapse-expand' | '';
+  container: Element;
 
   //#endregion
 
@@ -4862,7 +4863,7 @@ declare class mxGraph extends mxEventSource {
    *
    * listener - Listener to be added to the graph event listeners.
    */
-  addMouseListener(listener: Function): void;
+  addMouseListener(listener: object): void;
 
   /**
    * Function: removeMouseListener
@@ -4873,7 +4874,7 @@ declare class mxGraph extends mxEventSource {
    *
    * listener - Listener to be removed from the graph event listeners.
    */
-  removeMouseListener(listener: Function): void;
+  removeMouseListener(listener: object): void;
 
   /**
    * Function: updateMouseEvent
