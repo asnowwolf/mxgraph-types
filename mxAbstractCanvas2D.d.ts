@@ -394,4 +394,5 @@ declare class mxAbstractCanvas2D {
    * Empty implementation for backwards compatibility. This will be removed.
    */
   end(): void;
+  fillAndStroke(): void;
 }
