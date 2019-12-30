@@ -3,7 +3,7 @@
  * Copyright (c) 2006-2015, Gaudenz Alder
  */
 
-declare class mxConstants {
+declare class MxConstants {
   /**
    * Class: mxConstants
    *
@@ -2290,8 +2290,10 @@ declare class mxConstants {
    * Name of the triangle perimeter. Can be used as a string value
    * for the STYLE_PERIMETER style.
    */
-  PERIMETER_TRIANGLE: 'trianglePerimeter'
+  PERIMETER_TRIANGLE: 'trianglePerimeter';
 
 }
+
+declare const mxConstants: MxConstants;
 
 declare type mxDialectConstants = 'svg' | 'vml' | 'mixedHtml' | 'preferHtml' | 'strictHtml';
